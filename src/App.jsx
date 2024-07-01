@@ -14,11 +14,11 @@ function App() {
 
   const handleSubmit = () => {
     if (task && date && !togglebtn) {
-      setTodos(todos.map((element) => {
+  let tasks=(todos.map((element) => {
         if (element.id === edit) {
           return { ...element, task, date };
         }
-        return element;
+        setTodos(tasks)
       }));
       setTogglebtn(true);
       setTask('');
