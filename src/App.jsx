@@ -10,15 +10,14 @@ function App() {
   const [edit, setEdit] = useState(null);
   const [search, setSearch] = useState('');
   const [searchResult, setSearchresult] = useState(null);
-  const [searchDate, setSearchDate] = useState('');
 
   const handleSubmit = () => {
     if (task && date && !togglebtn) {
-  let tasks=(todos.map((element) => {
+      setTodos(todos.map((element) => {
         if (element.id === edit) {
           return { ...element, task, date };
         }
-        setTodos(tasks)
+        return element;
       }));
       setTogglebtn(true);
       setTask('');
@@ -33,7 +32,9 @@ function App() {
   };
 
   const deletedata = (id) => {
-    const updateitem = todos.filter((val) => val.id !== id);
+    const updateitem = todos.filter((val) =>{
+ return val.id!== id
+    })
     setTodos(updateitem);
   };
 
@@ -49,13 +50,12 @@ function App() {
 
   const SearchData = () => {
     let searchResults = todos.filter((element) => {
-      if (element.id === search) {
+      if(element.id ==search) {
         return element;
-      } else {
+      }else {
         return element.task.toLowerCase().includes(search.toLowerCase());
       }
     });
-
     setSearchresult(searchResults);
     setTogglebtn(false);
   };
@@ -63,11 +63,10 @@ function App() {
   const cancelSearch = () => {
     setSearchresult(null);
     setSearch('');
-    setSearchDate('');
     setTogglebtn(true);
   };
   useEffect(()=>{
- const todos=JSON.parse(localStorage.getItem("todos"))
+ let todos=JSON.parse(localStorage.getItem("todos"))
  if(todos){
   setTodos(todos)
  }
@@ -82,11 +81,7 @@ function App() {
               <h2>Todo-List</h2>
             <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Task</button>
            <div className="btn-search">
-          <input
-            type="search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+          <input type="search" value={search}  onChange={(e) => setSearch(e.target.value)}/>
           {togglebtn ?
             <button className="btn btn-primary" onClick={SearchData}>Search</button>
             :<button className="btn btn-secondary" onClick={cancelSearch}>
@@ -104,8 +99,8 @@ function App() {
           
           <tbody>
             {searchResult ? (
-              searchResult.map((result) => (
-                <tr key={result.id}>
+              searchResult.map((result) =>{
+               return <tr>
                   <td>{result.task}</td>
                       <td>{result.date}</td>
                   <td>
@@ -119,10 +114,10 @@ function App() {
                         </div>
                   </td>
                     </tr>
-              ))
+})
             ) : (
-              todos.map((todo) => (
-                <tr key={todo.id}>
+              todos.map((todo) => {
+                 return <tr>
                   <td>{todo.task}</td>
                   <td>{todo.date}</td>
                   <td>
@@ -137,7 +132,7 @@ function App() {
                       </div>
                    </td>
                 </tr>
-              ))
+})
             )}
           </tbody>
         </table>
@@ -151,10 +146,10 @@ function App() {
               </div>
               <div className="modal-body">
                 <label>Task</label><br />
-                   <input type="text" name="task" onChange={(e) => setTask(e.target.value)} value={task} required />
+                   <input type="text" name="task" onChange={(e) => setTask(e.target.value)} value={task} required/>
                 <br />
                 <label>Date</label><br />
-                   <input type="date" name="date" min={new Date().toISOString().split('T')[0]} onChange={(e) => setDate(e.target.value)} value={date} required />
+                   <input type="date" name="date" min={new Date().toISOString().split('T')[0]} onChange={(e) => setDate(e.target.value)} value={date} required/>
                 <br />
               </div>
               <div className="modal-footer">
