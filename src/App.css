@@ -22,12 +22,20 @@ h2 {
     margin-bottom: 20px;
   }
 
+<<<<<<< HEAD
 .btn-search {
 display: flex;
 float: right;
   gap: 80px;
   }
 
+=======
+.btn-search{
+  display: flex;
+   float: right;
+  }
+  
+>>>>>>> e8b32cd080e21d7ba9f3dada548fe3fbceaf9b25
   .modal-body input[type="text"],
 .modal-body input[type="date"] {
   width: 550px;
