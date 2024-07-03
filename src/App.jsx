@@ -12,13 +12,14 @@ function App() {
   const [searchDate, setSearchDate] = useState("");
 
   const handleSubmit = () => {
-    if (task && date && !togglebtn) {
-      setTodos(todos.map((element) => {
+    if (task,date && !togglebtn) {
+     let updatetodo=todos.map((element) => {
         if (element.id === edit) {
           return {...element,task,date};
         }
-        return element;
-      }));
+     return element
+      })
+      setTodos(updatetodo)
       setTogglebtn(true);
       setTask("");
       setDate("");
@@ -40,18 +41,20 @@ function App() {
   };
 
   const editData = (id) => {
-    let newData = todos.find((element) =>{
-      return element.id === id
-    })
+    let newData = todos.find((element) => {
+      return element.id==id;
+    });
     setTogglebtn(false);
     setTask(newData.task);
     setDate(newData.date);
     setEdit(id);
   };
+  const handleData = (e) => {
+    const searchTerm = e.target.value;
+    setSearch(searchTerm);
 
-  const SearchData = () => {
-    let searchResults = todos.filter((element) => {
-      if(element.id ==search) {
+    const filterItem = todos.filter((element) => {
+      if (element.id==searchTerm) {
         return element;
       } else {
         return element.task.toLowerCase().includes(searchTerm.toLowerCase());
@@ -87,18 +90,43 @@ function App() {
   return (
     <div>
       <div className="container">
-              <h2>Todo-List</h2>
-            <button type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Task</button>
-           <div className="btn-search">
-          <input type="search" value={search}  onChange={(e) => setSearch(e.target.value)}/>
-          {togglebtn ?
-            <button className="btn btn-primary" onClick={SearchData}>Search</button>
-            :<button className="btn btn-secondary" onClick={cancelSearch}>
-              Cancel
-            </button>
-}
-        </div>
+        <h2>Todo-List</h2>
+        <button
+          type="button"
+          className="btn btn-info btn-lg"
+          data-toggle="modal"
+          data-target="#myModal"
+        >
+          Add Task
+        </button>
+        <div className="btn-search">
+          <div>
+            <input
+              type="search"
+              value={search}
+              onChange={handleData}
+              placeholder="Search Task"
+            />
+          </div>
 
+          <div className="date-Search">
+            <input
+              type="date"
+              value={searchDate}
+              onChange={(e) => setSearchDate(e.target.value)}
+            />
+
+            {togglebtn ? (
+              <button className="btn btn-primary" onClick={SearchDate}>
+                Search
+              </button>
+            ) : (
+              <button className="btn btn-secondary" onClick={cancelSearch}>
+                Cancel
+              </button>
+            )}
+          </div>
+          </div>
         <table className="table">
           <tr>
             <th>Task Name</th>
@@ -107,10 +135,16 @@ function App() {
           </tr>
 
           <tbody>
-            {searchResult ? (
-              searchResult.map((result) =>{
-               return <tr>
-                  <td>{result.task}</td>
+          {searchResult !== null && searchResult.length === 0 && (
+              <tr>
+                <td colSpan="3">No task found</td>
+              </tr>
+            )}
+            {searchResult
+              ? searchResult.map((result) => {
+                  return (
+                    <tr>
+                      <td>{result.task}</td>
                       <td>{result.date}</td>
                       <td>
                         <div className="dropdown">
