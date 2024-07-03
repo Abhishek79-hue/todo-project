@@ -25,9 +25,18 @@ h2 {
 .btn-search {
 display: flex;
 float: right;
-  gap: 80px;
+  gap: 50px;
   }
-
+.btn-search input[type="search"]{
+ width: 200px;
+ padding:6px;
+ border-radius:15px;
+}
+.btn-search input[type="date"]{
+  width: 150px;
+  padding:6px;
+  border-radius:8px;
+}
   .modal-body input[type="text"],
 .modal-body input[type="date"] {
   width: 550px;

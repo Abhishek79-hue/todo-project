@@ -117,11 +117,11 @@ function App() {
             />
 
             {togglebtn ? (
-              <button className="btn btn-primary" onClick={SearchDate}>
+              <button className="btn btn-primary rd-5 btn-rounded" onClick={SearchDate}>
                 Search
               </button>
             ) : (
-              <button className="btn btn-secondary" onClick={cancelSearch}>
+              <button className="btn btn-secondary rd-3 btn-rounded" onClick={cancelSearch}>
                 Cancel
               </button>
             )}
