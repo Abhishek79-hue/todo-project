@@ -24,9 +24,10 @@ h2 {
 
 .btn-search {
 display: flex;
-   float: right;
-  
+float: right;
+  gap: 80px;
   }
+
   .modal-body input[type="text"],
 .modal-body input[type="date"] {
   width: 550px;
