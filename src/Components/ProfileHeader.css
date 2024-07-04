@@ -1,0 +1,40 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .container {
+    margin: 0 auto;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    
+  }
+  .cover-pic {
+    width: 500px;
+     margin: auto;
+    height: auto;
+    max-height: 400px;
+    display: block;
+   border-radius: 5px;
+  }
+  .Profile-pic{
+        position: absolute;
+       bottom: 258px; /* Adjust vertical position as needed */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90px; /* Adjust size as needed */
+        height: 90px;
+        border-radius: 50%;
+        border: 2px solid #fff; /* Optional: add a border */
+      
+}
+.User-name{
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    margin-top:50px;
+    left: 50%;
+}
