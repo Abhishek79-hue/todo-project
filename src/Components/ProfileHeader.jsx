@@ -4,10 +4,11 @@ import image from "../Images/Profile.jpeg"
 import "./ProfileHeader.css"
 function ProfileHeader() {
   return (
-    <div className='conatiner'>
+    <div className='header-container'>
      <img src={CoverImage} alt='Cover Images'className='cover-pic'/>
      <img src={image} alt='profile-pic' className='Profile-pic'/>
-     <h2 className='User-name'>John Doe</h2>
+     <h3 className='user-name'>Joe Doe</h3>
+     <a href='#' className='timeline'>TimeLine</a>
     </div>
   )
 }

@@ -1,10 +1,9 @@
 .container {
-    max-width: 500px;
+   width: 500px;
     margin-top: 20px;
-    border: 1px solid #ccc;
+    border: 0px solid #ccc;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
 }
 
 .post-header {
@@ -14,8 +13,8 @@
 }
 
 .profile-pic{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
@@ -23,11 +22,10 @@
 .btn.btn-default.navbar-btn {
     flex-grow: 1;
     text-align: left;
-    background-color: #f0f2f5;
     border: 1px solid #ccc;
     border-radius: 20px;
     padding: 8px 15px;
-    color: #555;
+ 
 }
 h5.modal-title{
    font-size:20px;
@@ -53,24 +51,13 @@ h5.modal-title{
 
 .modal-body {
     padding: 15px;
+    width: 500px;
 }
 
 .post-body {
     display: flex;
     align-items: start;
 }
-
-.post-textarea {
-    flex-grow: 1;
-    border: none;
-    resize: none;
-    border-radius: px;
-    height: 80px;
-    padding: 10px;
-    font-size: 14px;
-    margin-left: 10px;
-}
-
 .post-footer {
     display: flex;
     justify-content: space-between;
@@ -91,4 +78,25 @@ h5.modal-title{
 .btn-primary{
     width: 100%;
     padding: 5px;
+}
+.post-imgae{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+
+    display:inline-flex;
+}
+.text-area {
+    position: absolute;
+    border-color: transparent;
+    width: auto;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    background-color: white;
+    color: black;
+    padding: 0 10px;
 }

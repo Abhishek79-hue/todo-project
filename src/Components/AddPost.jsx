@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import image from '../Images/Profile.jpeg';
 import './AddPost.css'
+import { useFacebookPost } from '../Context/FacekbookContext';
 function AddPost() {
+  const[file,setFile]=useState("")
+  const {addPost}=useFacebookPost()
+
+  const handleImageUplaod=(e)=>{
+    setFile(URL.createObjectURL(e.target.files[0]))
+  }
+  const add=(e)=>{
+    add(post)
+    setFile("")
+  }
+
   return (
     <div className='container'>
       <div className="post-header">
@@ -23,11 +35,11 @@ function AddPost() {
             <div className="modal-body">
               <div className="post-body">
                 <img src={image} alt="Profile" className="profile-pic" />
-                <textarea className="post-textarea" placeholder="What's on your mind?"></textarea>
+                
               </div>
-              <div className="post-footer">
-                <input type="file" className="file-input" />
-              </div>
+                <input type="file" className="file-input" onChange={handleImageUplaod}/>
+                <img src={file} className='post-imgae' onClick={add}/>
+            <input type="text" name="" id="" className='text-area'/>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn-primary" data-dismiss="modal">Post</button>

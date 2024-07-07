@@ -4,7 +4,7 @@ export const FacebookPostContext=createContext({
 posts:[],
 addPost:(post)=>{},
 UpdatePost:(id,post)=>{},
-delete:(id)=>{}
+deletePost:(id)=>{}
 })
 
 export const useFacebookPost=()=>{
